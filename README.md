@@ -1,4 +1,4 @@
-## Hi there 👋 0317 feature/c 기능개발완료
+Hi there 👋 0317 feature/c 기능개발완료 feature/b 기능개발완료
 
 <!--
 **baguni93/baguni93** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
