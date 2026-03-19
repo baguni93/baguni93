@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="todoItem.todo" placeholder="입력" />
+      <input type="text" v-model="todoItem.desc" placeholder="설명" />
+      <br />
+      <button @click="addDireact">그대로 추가</button>
+      <button @click="addSpread">관계연산자로 추가</button>
+
+      <br />
+      <h3>할일 목록</h3>
+      <ul>
+        <li v-for="(val, key) in todos" :key="key">
+          {{val.todo}} - {{val.desc}}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            todoItem: {
+              todo: '',
+              desc: '',
+            },
+
+            todos: [],
+          };
+        },
+        methods: {
+          addDireact() {
+            this.todos.push(this.todoItem);
+          },
+          addSpread() {
+            this.todos.push({ ...this.todoItem });
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

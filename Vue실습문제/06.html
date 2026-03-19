@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #img {
+        width: 15px;
+        height: 15px;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      예금액 : <input type="text" v-model="amount" />
+      <img id="img" v-if="amount < 0" v-bind:src="imgPath" alt="에러이미지" />
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            amount: 0,
+            imgPath: 'https://contactsvc.bmaster.kro.kr/img/error.png',
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <select name="" id="regions">
+        <option value="">지역선택</option>
+        <option v-for="(val,id) in regions" :value="id" :key="id">
+          <!--  :value="id" 진짜 값 -->
+          <!--   :key="id Vue가 쓰는 내부 식별자 -->
+          {{val}}
+        </option>
+      </select>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            regions: {
+              A: 'Asia',
+              B: 'America',
+              C: 'Europe',
+              D: 'Africa',
+              E: 'Oceania',
+            },
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
