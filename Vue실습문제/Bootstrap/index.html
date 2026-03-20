@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- https://www.w3schools.com/bootstrap5/bootstrap_grid_basic.php -->
+  </head>
+  <body>
+    <div class="container mt-3" id="app">
+      <h2>Bootstarp Table</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>등록일</th>
+          </tr>
+        </thead>
+        <tbody id>
+          <tr v-for="(contact , index) in contacts" :key="contact.no">
+            <td>{{index+1}}</td>
+            <td><a href="#">{{contact.title}}</a></td>
+            <td>{{contact.user}}</td>
+            <td>{{contact.date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container mt-3">
+      <h2><i class="fa-solid fa-house"></i>Fontawesome 테스트</h2>
+      <button type="button" class="btn btn-primary">
+        <i class="fa fa-envelope-open" aria-hidden="true"></i> email
+      </button>
+      <button type="button" class="btn btn-success">
+        <i class="fa fa-sign-in"></i> login
+      </button>
+      <button type="button" class="btn btn-warning">
+        <i class="fa-solid fa-key"></i> 비밀번호
+      </button>
+      <button type="button" class="btn btn-danger">
+        <i class="fa-solid fa-trash"></i> 삭제
+      </button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            contacts: [
+              { no: 1, title: '글 제목 1', user: 'user01', date: '2024-04-17' },
+              { no: 2, title: '글 제목 2', user: 'user01', date: '2024-04-17' },
+              { no: 3, title: '글 제목 3', user: 'user01', date: '2024-04-17' },
+              { no: 4, title: '글 제목 4', user: 'user01', date: '2024-04-17' },
+              { no: 5, title: '글 제목 4', user: 'user01', date: '2024-04-17' },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
