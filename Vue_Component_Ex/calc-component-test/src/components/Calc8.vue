@@ -1,0 +1,28 @@
+<template>
+  ref + watchEffects
+  <input type="text" v-model.number="x" /> <br />
+  <input type="text" v-model.number="y" /> <br />
+
+  <div>결과 : {{ result }}</div>
+</template>
+
+<script>
+import { ref, watchEffect } from 'vue';
+
+export default {
+  name: 'Calc8',
+  setup() {
+    const x = ref(0);
+    const y = ref(0);
+    const result = ref(0);
+
+    watchEffect(() => {
+      result.value = x.value + y.value;
+
+      console.log(`${x.value} + ${y.value} = ${result.value}`);
+    });
+
+    return { x, y, result };
+  },
+};
+</script>
